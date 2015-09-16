@@ -1,50 +1,43 @@
 language: android
-
 addons:
-    apt:
-        packages:
-        - libgd2-xpm
-        - ia32-libs
-        - ia32-libs-multiarch
-        - git
-        - libtool
-        - automake
-        - gradle
-
+  apt:
+    packages:
+    - libgd2-xpm
+    - ia32-libs
+    - ia32-libs-multiarch
+    - git
+    - libtool
+    - automake
+    - gradle
 android:
-    components:
-    - platform-tools
-    - android-22
-    - build-tools-23.0.0
-    - extra
-
+  components:
+  - platform-tools
+  - android-22
+  - build-tools-23.0.0
+  - extra
 jdk: oraclejdk7
-
 notifications:
   email: false
-
 before_install:
-    - bash setup.sh
-    - source env.sh
-
+- bash setup.sh
+- source env.sh
 install:
-    - bash install-package.sh
-
+- bash install-package.sh
 cache:
-    directories:
-    - $HOME/ndk/
-
+  directories:
+  - $HOME/ndk/
 script:
-    - bash build.sh
-
+- bash build.sh
 deploy:
   provider: releases
   api-key: $GITHUB_TOKEN
   file:
-    - "$HOME/Telegram-v3.1.3.apk"
+  - $HOME/Telegram-v3.1.3.apk
   skip_cleanup: true
   on:
     tags: true
 env:
-    global:
-        secure: "TMav7mMoFrobJECwhBW5azFdY74YoZ1ct9KZM0sGZj3HNSumADq4EqCPVRG5Bn3O0k+QM1wdEaiMbKlKjx7nf4OzxOOEIYsRtfWB5fjLpM75LPapy4gDinDJ3Og9a1Km2RmCy3ay7CPXLOcHHMaLiRv9fzoWfd9CoeNMFOoarZPMHjAAIxzAUtjYN3VLMZ2zOx4CXga+SKmyUhxphrHXvLpiZCUHBt5oKP5I2uki7gt0utCNZYhHRUoqxdq+w97B+Zt+kfaBS48ra7/mxZLSFlmSonV7cIiRenG+FUH1L7RrWzncSivrFkhVmyQdjgfqSWJQUcwGZQh8nMwipkkG2xA4NmL2TjtbzZHZrRA2vbNe0JBb7xo0m4DvfaCUBPcl0ZyzQs92SYWiyG+8fIr4LWkFwmGjemdq0Y2hvlTArf0eRVmc7WGHj6RBuW3ooyHnCW6MPpvKQRg2eY75SJdVH/MybHDiXK3ezE9KFBrnIvrrGxYA3CvvM+hVAnERI9e2cwQPpJ7hDXOEJewg0PIoIJYT3bG/3/PZpPPjKM9RPLmKAlgrG7omKZ591iM1Kj2WoHJdW6bQMTFwRS+Zif/Wseoj8j+u5HmgiKOyohRtwccD4AUdeil1b/v+NuHuw7oOr/I2n09bFpeP+CGV8diJPfyCfFhUnzqmi6lw2T3EWYo="
+  global:
+  - secure: TMav7mMoFrobJECwhBW5azFdY74YoZ1ct9KZM0sGZj3HNSumADq4EqCPVRG5Bn3O0k+QM1wdEaiMbKlKjx7nf4OzxOOEIYsRtfWB5fjLpM75LPapy4gDinDJ3Og9a1Km2RmCy3ay7CPXLOcHHMaLiRv9fzoWfd9CoeNMFOoarZPMHjAAIxzAUtjYN3VLMZ2zOx4CXga+SKmyUhxphrHXvLpiZCUHBt5oKP5I2uki7gt0utCNZYhHRUoqxdq+w97B+Zt+kfaBS48ra7/mxZLSFlmSonV7cIiRenG+FUH1L7RrWzncSivrFkhVmyQdjgfqSWJQUcwGZQh8nMwipkkG2xA4NmL2TjtbzZHZrRA2vbNe0JBb7xo0m4DvfaCUBPcl0ZyzQs92SYWiyG+8fIr4LWkFwmGjemdq0Y2hvlTArf0eRVmc7WGHj6RBuW3ooyHnCW6MPpvKQRg2eY75SJdVH/MybHDiXK3ezE9KFBrnIvrrGxYA3CvvM+hVAnERI9e2cwQPpJ7hDXOEJewg0PIoIJYT3bG/3/PZpPPjKM9RPLmKAlgrG7omKZ591iM1Kj2WoHJdW6bQMTFwRS+Zif/Wseoj8j+u5HmgiKOyohRtwccD4AUdeil1b/v+NuHuw7oOr/I2n09bFpeP+CGV8diJPfyCfFhUnzqmi6lw2T3EWYo=
+  - secure: O6kuvtvqdSPlHguFVX4nuZ4sfC51Pn3cpDAIZs14hbj3ZlKRjhdoxW9oe14yIDUe24a3SVc6UR+ax+wH/bJKyzvaWlIMRkstsg8I++6FsoS7IoaKswUMeH2EGA+K8iYiJ/Q9H3wTjYWa9ahy8JEWFb8tJRFhLaYOSjRDI2afznHRDmccRV27G/w+dorF18eVrsR0zc05WgWOq4tqU2nS9A74y48Wa8EXCTu/+Up5vqUEoTyhAFHTyPJDuFsrHZswUlykOAe+8iwXqUMRIV82bZFpEMeUlYbJfNBz3zZI+uy7zo60r6iJgk20I88/NgNEz38PHkPzKj+L/ykDwi05WEzw61ijZgGre65gvz2CY6Nggo1I1oVREORjiNH6MYVgsZ8w8o6H9g34qgefG9PzROtTfNRG0MorAX11lg0Ktiyco16fVfT/9z/Shj1ONp7UP3E+4ruuPERw0I6hJhN6m00rBpDCNWx0A3W7WGxkIiCQ5ueyv0sGaOczkicwZFby0pClVu+H2o8lZeLlYb6c0KTZspsj5dCN+qT0Ft3p28L6FQh/kId4toOW43ivDAw5uXcMVcTKzWOaqBuUuwKCnfBCcppmN0KTbaqbpMnTUVNG6MJhcm4mZnxn6yQlarNnCHLz4Ubledj2Nml30F1QOwxZH8wePsSLENpj9oZvSnM=
+  - secure: aYHWHjkmZgko4PxeIgT+7kTJGh2pwbxuZFS0BSyRBIQFOt0R6I0kavN+xTaDlN8nN2ESuhIoUe6s+c5JZ6rvkCp1Mg7it10leWN7njrQeAlZjafuqVyXjBMPuUYhS7jEUXbjNJn/xBAGtqckPnvZHvDpPlmTGuVLoFUPLbRthxR1iLiVLxX+L18sKC73wdsqwusdR0UxHlNez3lnC7PlPenAlYRO3G/mwXnVTee+I+vaq/7Zhbatqun16OiHWE1KCj+3fx0U2o4uCQ/CfeSvBp/u/hMKOqmGXBgTQ60uFEfrgTRfjko2/UNP13n9pHWbEN6SwGoAPKADETo+z7DaOnwM7xgiRR3iyuJ58kVNCPywUOr6Q7mPkrlZK/ECNUl7hPgxDJsVgEzWoECHPVhtK9dCEykcPGzJi4lCCFwooO1axzBQDIGMPqUbSZis9IhdQlIOTlzckCqsOCfZfIs80qw1xKfjoBh7BFHdvqKR950/X/YUkgznSI39Hz9VVMcDAE7edmW+V9oyTwP0ZgR2KKWBG/4nEcVqHZLZCYp0Zg7/d9cCiVBms9WL2pD7noKl97mqEoGleVX/5crNz9JwYz7aSd3pozEIIl7fmFYWuw9GAkKpt+iKGGLq+XE2dw1D5gESe3Ko0XWVPPDsapcONyr7ttjkfaVLNd7li9XyZBA=
