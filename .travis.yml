@@ -41,7 +41,7 @@ deploy:
   provider: releases
   api-key: $GITHUB_TOKEN
   file:
-    - "$HOME/telegram-v3.1.3.apk"
+    - "$HOME/Telegram-v3.1.3.apk"
   skip_cleanup: true
   on:
     tags: true
