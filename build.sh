@@ -10,4 +10,4 @@ gradle clean assembleDebug
 
 ls -lR TMessagesProj/build/outputs
 
-cp TMessagesProj/build/outputs/apk/app-debug.apk $HOME/Telegram-v3.1.3.apk
+cp TMessagesProj/build/outputs/apk/TMessagesProj-debug.apk $HOME/Telegram-v3.1.3.apk
